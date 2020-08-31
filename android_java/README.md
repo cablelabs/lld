@@ -2,11 +2,11 @@
 This is an example of setting the DSCP value of traffic, sent out from an android device written in java. The example uses a pair of classes called EchoClient and EchoServer driven by other java classes to send and receive UDP traffic using the java.net.DatagramSocket and java.net.DatagramPacket classes. A TCP based implementation would use the same method for setting the DSCP value.
 
 
-##Provided Projects
+## Provided Projects
 Provided here is both an android studio example project in AndroidJavaTos and an intellij idea project in DesktopJavaTos. The android studio project is more thoroughly commented. The intellij project is modified to run on a desktop. 
 
 
-##Example Code
+## Example Code
 For a declared DatagramSocket or Socket you can set the tos (Type of service) byte to effectively set the DSCP value. The following method is recommended.
 
 ```java
