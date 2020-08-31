@@ -1,0 +1,8 @@
+<root>
+    <item name='java.net.SocketOptions IP_TOS'>
+        <annotation name='org.jetbrains.annotations.Range'>
+            <val name="from" val="0"/>
+            <val name="to" val="255"/>
+        </annotation>
+    </item>
+</root>
