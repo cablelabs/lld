@@ -11,7 +11,7 @@ For a declared DatagramSocket or Socket you can set the tos (Type of service) by
 
 ```java
 int tos = 160;
-//160 corrosponds to the reccomendded code point of CS5
+//160 corrosponds to the recommended code point of CS5
 DatagramSocket socket = new DatagramSocket();
 
 socket.setTrafficClass(tos);
