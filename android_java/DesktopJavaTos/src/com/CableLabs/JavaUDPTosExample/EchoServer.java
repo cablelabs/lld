@@ -58,10 +58,13 @@ public class EchoServer implements Runnable {
 //            System.out.println("Running  = " + Boolean.toString(running));
             if (!(received.equals("end"))) {
                try {
-                   int tos = Integer.valueOf(received);
-                   socket.setTrafficClass(tos);
+                   // Note that the payload contains a DSCP value
+                   // We need to set the traffic class with a "TOS" value which is
+                   // DSCP shifted left by two bits
+                   int dscp = Integer.valueOf(received);
+                   socket.setTrafficClass(dscp<<2);
 //
-//                socket.setOption(IP_TOS, Integer.valueOf(received));
+//                socket.setOption(IP_TOS, Integer.valueOf(received) << 2);
 //                The above is a deprecated method for setting the tos byte.
 //                Be sure the use the needed import.
                } catch (SocketException e) {

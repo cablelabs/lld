@@ -12,8 +12,8 @@ public class ClientTest {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        int[] DSCPVals = new int[]{0,8,32,40,48,56,64,72,80,88,96,104,112,120,128,
-            136,144,152,160,184,192,224};
+        int[] DSCPVals = new int[]{0,8,10,12,14,16,18,20,22,24,26,28,30,32,
+            34,36,38,40,46,48,56};
 
         EchoClient client;
 
@@ -30,10 +30,12 @@ public class ClientTest {
 
         String echo = "";
 
+        // Note we iterate through, and send, DSCP values in the payload
+        // but we use that value << 2 to set the TOS value
         for (int i:DSCPVals) {
             for (int j = 0; j < 5; j++){
-                System.out.println("Sending on tos: " + Integer.toString(i));
-                client.setTos(i);
+                System.out.println("Sending on DSCP: " + Integer.toString(i));
+                client.setTos(i<<2);
                 echo = client.sendEcho(Integer.toString(i));
                 System.out.println("Received: " + echo);
             }
