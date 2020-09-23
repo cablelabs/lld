@@ -78,7 +78,7 @@ public class EchoServer implements Runnable {
  */
             if (!(received.equals("end"))) {
 
-                socket.setTrafficClass(Integer.valueOf(received));
+                socket.setTrafficClass(Integer.valueOf(received) << 2);
             }
 
             socket.send(packet);
